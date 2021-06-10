@@ -1,11 +1,14 @@
- var tall=[2,5,4,6,1,7,8,];
- total(tall);
- function total(arr){
-     var  totalOdd = 0;
-    for (var i = 0; i< arr.length; i++){
-      if (arr[i] % 2  !== 0){
-        totalOdd = totalOdd + tall[i];
-      }
+// 8 Viết hàm kiểm tra một số có phải là số nguyên tố hay không
+function prime(number) {
+  if (number <=1 ){
+    return false;
+  }else{
+  for (var i = 2; i < number; i++) {
+    if (number % i === 0) {
+      prime = false;
     }
-    console.log( "totalEven have :" + totalOdd);
- }
+  }
+  return true;
+}
+}
+console.log(prime(2));
