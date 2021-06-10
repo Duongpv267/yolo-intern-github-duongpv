@@ -1,14 +1,20 @@
-// 8 Viết hàm kiểm tra một số có phải là số nguyên tố hay không
-function prime(number) {
-  if (number <=1 ){
-    return false;
-  }else{
-  for (var i = 2; i < number; i++) {
-    if (number % i === 0) {
-      prime = false;
-    }
+function remainder(a, b) {
+  if (a === 0) {
+    return 0;
   }
-  return true;
+  if (b === 0 || isNaN(a) || isNaN(b)) {
+    return NaN;
+  }
+  if (a < b) {
+    return a;
+  }
+  if (a > 0 && b > 0) {
+    var counter = a;
+    while (counter >= Math.abs(b)) {
+      counter = counter - b;
+    }
+    return counter;
+  }
 }
-}
-console.log(prime(2));
+var output =remainder(10,3);
+console.log(output);
