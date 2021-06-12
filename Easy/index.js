@@ -22,3 +22,4 @@ hoặc sửa : i<10 thành i> -10
 //    }
 // }
 // return total;
+giá trị = 11,9,7,5,3,1( số chẵn cộng thêm 1 thì ra số lẻ)
