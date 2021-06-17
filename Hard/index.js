@@ -1,48 +1,35 @@
-//3function puzzle01() {
-  var arrayOne = [3, 6, -1, 11, 15, -1, 23, 34, -1, 42];
-  var arrayTwo = [1, 9, 28];
-  var array1Counter = 0,
-    isMerged = false;
-
-  console.log(" array-1 ", arrayOne);
-  console.log(" array-2 ", arrayTwo);
-
-  for (var array2Counter = 0; array2Counter < arrayTwo.length; array2Counter++) {
-    isMerged = false;
-    while (isMerged === false && array1Counter < arrayOne.length) {
-
-      if (arrayOne[array1Counter] === -1) {
-        arrayOne[array1Counter] = arrayTwo[array2Counter];
-        isMerged = true;
-      }
-
-      array1Counter++;
+function sortedMerge(a, b, res, n, m) {
+    a.sort((a, b) => b - a);
+    b.sort((a, b) => b - a);
+    let i = 0, j = 0, k = 0;
+    while (i < n && j < m) {
+        if (a[i] >= b[j]) {
+            res[k] = a[i];
+            i += 1;
+            k += 1;
+        } else {
+            res[k] = b[j];
+            j += 1;
+            k += 1;
+        }
     }
-  } //for
-  console.log(" array-1 + array-2 ", arrayOne);
-  bubbleSort(arrayOne);
-  console.log(" Sorted array ", arrayOne);
- //puzzle01
-
-puzzle01();
-
-// implementation of bubble sort for sorting the 
-// merged array
-function bubbleSort(arrayOne) {
-  var nextPointer = 0,
-    temp = 0,
-    hasSwapped = false;
-    
-  do {
-    hasSwapped = false;
-    for (var x = 0; x < arrayOne.length; x++) {
-      nextPointer = x + 1;
-      if (nextPointer < arrayOne.length && arrayOne[x] > arrayOne[nextPointer]) {
-        temp = arrayOne[x];
-        arrayOne[x] = arrayOne[nextPointer];
-        arrayOne[nextPointer] = temp;
-        hasSwapped = true;
-      }
-    } //for
-  } while (hasSwapped === true);
-} // bubbleSort
+    while (i < n) {
+        res[k] = a[i];
+        i += 1;
+        k += 1;
+    }
+    while (j < m) {
+        res[k] = b[j];
+        j += 1;
+        k += 1;
+    }
+}
+let a = [10, 5, 15];
+let b = [20, 3, 2, 12];
+let n = a.length;
+let m = b.length;
+let res = new Array(n + m);
+sortedMerge(a, b, res, n, m);
+document.write("Sorted merge list :");
+for (let i = 0; i < n + m; i++)
+    document.write(" " + res[i]);
