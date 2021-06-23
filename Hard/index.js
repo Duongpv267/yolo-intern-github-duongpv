@@ -1,35 +1,55 @@
-function sortedMerge(a, b, res, n, m) {
-    a.sort((a, b) => b - a);
-    b.sort((a, b) => b - a);
-    let i = 0, j = 0, k = 0;
-    while (i < n && j < m) {
-        if (a[i] >= b[j]) {
-            res[k] = a[i];
-            i += 1;
-            k += 1;
-        } else {
-            res[k] = b[j];
-            j += 1;
-            k += 1;
-        }
-    }
-    while (i < n) {
-        res[k] = a[i];
-        i += 1;
-        k += 1;
-    }
-    while (j < m) {
-        res[k] = b[j];
-        j += 1;
-        k += 1;
-    }
-}
-let a = [10, 5, 15];
-let b = [20, 3, 2, 12];
-let n = a.length;
-let m = b.length;
-let res = new Array(n + m);
-sortedMerge(a, b, res, n, m);
-document.write("Sorted merge list :");
-for (let i = 0; i < n + m; i++)
-    document.write(" " + res[i]);
+var numberToWordMap = {
+    0: "không",
+    1: "một",
+    2: "hai",
+    3: "ba",
+    4: "bốn",
+    5: "lăm",
+    6: "sáu",
+    7: "bảy",
+    8: "tám",
+    9: "chín"
+  };
+  function numberToWords(number){
+    let result = '';
+    if (number >= 0 && number <= 9) {
+      return numberToWordMap[number]; 
+      //hàng đơn vị
+    } else if (number >= 10 && number <= 99 ) {
+      let phanNguyen10 = Math.floor(number / 10);
+      let phanDu10 = number % 10 ;
+      if (phanNguyen10 === 1){
+         if (phanDu10 === 0){
+           return "mười";
+         }
+         return "mười " + numberToWords(phanDu10);
+      } else {
+         let phanNguyen10DangChu = phanNguyen10 === 5 ? "năm" : numberToWordMap[phanNguyen10];
+         if (phanDu10 === 0 ){
+           return  phanNguyen10DangChu + " mươi"
+         }
+         let phanDu10DangChu = phanDu10 === 1 ? "mốt" :  numberToWordMap[phanDu10];
+         return  phanNguyen10DangChu + " mươi " + phanDu10DangChu;
+      } 
+     // hàng chục
+     }  else if (number >= 100 && number <= 999 ) {
+      let phanNguyen100 = Math.floor(number / 100);
+      let phanDu100 = number % 100 ;
+       let phanNguyen100DangChu  = phanNguyen100 === 5 ? "năm" : numberToWordMap[phanNguyen100];
+       if (phanNguyen100 ===1){
+       if (phanDu100 === 0){
+         return  phanNguyen100DangChu +" trăm ";
+       }
+       if (phanDu100 >= 1 && phanDu100 <= 9){
+         return phanNguyen100DangChu +" trăm linh " + numberToWords(phanDu100);
+       }
+       return phanNguyen100DangChu +" trăm " + numberToWords(phanDu100);
+      }
+       // hàng trăm
+     } 
+    return  "";
+  }
+  
+  for(let i = 99; i < 300; i++) {
+     console.log(numberToWords(i));
+  }
