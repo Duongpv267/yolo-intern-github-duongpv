@@ -1,22 +1,13 @@
-let mod = 100000007;
-function bienDem(mang1, mang2) {
-    let bien = 0;
-    let a = mang1.length;
-    let b = mang2.length;
-    for (i = 0; i <= b - a; i++) {
-        let c;
-        for (c = 0; c < a; c++) {
-            if (mang2[i + c] != mang1[c]) {
-                break;
-            }
-        }
-        if (c == a) {
-            bien++;
-            c = 0;
-        }
-    }
-    return bien;
+// trả về một số thực ngẫu nhiên từ a-b
+function randomRange(a,b){
+return Math.random() * (b-a)+a;
 }
-let mang1 = "phanvanduong";
-let mang2 = "an";
-document.write(bienDem(mang2, mang1));
+var randomNumber =randomRange(3,9);
+console.log(randomNumber);
+
+//trả về một số tự nhiên từ a-b
+function randomRange1(c,d){
+    return Math.floor(Math.random()* (d-c+1))+c;
+}
+var randomNumber1 =randomRange1(3,9);
+console.log(randomNumber1);
