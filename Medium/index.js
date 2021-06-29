@@ -1,3 +1,17 @@
+<<<<<<< HEAD
+=======
+// ID 19 Đoạn code sau trả về giá trị bao nhiêu (% là toán tử lấy số dư, ví dụ 3%2 = 1, 5%3 = 2)
+// int total = 0;
+// for(int i=1; i<5; i++) {
+//    if(i %2 == 0) {
+//        total = total + 1;
+//    } else {
+//        total = total * 2;
+//    }
+// }
+// return total;
+/** đoạn code này trả về giá trị 0 và 1 **/
+>>>>>>> medium
 // ID 20 sự khác nhau giữa stack và queue 
 /* giống :
  - đều là các dữ liệu không nguyên thủy 
