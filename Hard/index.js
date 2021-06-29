@@ -1,13 +1,13 @@
-function xaoTron(mang){
-    var bien = mang.length, ngauNhien;
-    while(0 != bien){
-        ngauNhien = Math.floor(Math.random() * bien);
-        bien --;
-        [mang[xaoTron], mang[ngauNhien]] 
-        = [ mang[ngauNhien], mang[xaoTron]];
-    }
-    return mang;
+// trả về một số thực ngẫu nhiên từ a-b
+function randomRange(a,b){
+return Math.random() * (b-a)+a;
 }
-var mang =[23,64,32,36,07,02,34,55,11];
-xaoTron(mang);
-alert('Cac so bi xao tron: '+ mang)
+var randomNumber =randomRange(3,9);
+console.log(randomNumber);
+
+//trả về một số tự nhiên từ a-b
+function randomRange1(c,d){
+    return Math.floor(Math.random()* (d-c+1))+c;
+}
+var randomNumber1 =randomRange1(3,9);
+console.log(randomNumber1);
