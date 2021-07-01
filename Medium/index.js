@@ -1,14 +1,18 @@
-function FibonacciNumbers(n) {
-	let f1 = 0, f2 = 1, i;
-	if (n < 1)
-		return;
-	document.write(f1 + " ");
-	for (i = 1; i <= n; i++) {
-		document.write(f2 + " ");
-		let next = f1 + f2;
-		f1 = f2;
-		f2 = next;
+function chuoi(c2, c1) {
+	var count = 0;
+	for (var i = 0; c1.length; i++) {
+		if (count == c2.length) {
+			break;
+		} if (c2[count] == c1[i]) {
+			count++;
+		} else {
+			if (count > 0) {
+				i -= count;
+			} count = 0;
+		}
 	}
+	return count < c2.length ? -1 : i - count;
 }
-FibonacciNumbers(9);
- 
+var c1 = "phanvanduongph18124";
+
+document.write("vị trí thứ"+chuoi("duong", c1));
