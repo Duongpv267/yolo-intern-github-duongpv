@@ -1,13 +1,21 @@
-// trả về một số thực ngẫu nhiên từ a-b
-function randomRange(a,b){
-return Math.random() * (b-a)+a;
+let chuSo = [1, 1, 2, 6, 4, 2, 2, 4, 2, 8];
+       
+function chuSoCuoiCungKhac0(n)
+{
+	if (n < 10)
+		return chuSo[n];
+	if ((parseInt(n / 10, 10) % 10) % 2 == 0)
+	 return (6 * chuSoCuoiCungKhac0(parseInt(n / 5, 10))
+		* chuSo[n % 10]) % 10;
+	else
+	 return (4 * chuSoCuoiCungKhac0(parseInt(n / 5, 10))
+		* chuSo[n % 10]) % 10;
 }
-var randomNumber =randomRange(3,9);
-console.log(randomNumber);
-
-//trả về một số tự nhiên từ a-b
-function randomRange1(c,d){
-    return Math.floor(Math.random()* (d-c+1))+c;
-}
-var randomNumber1 =randomRange1(3,9);
-console.log(randomNumber1);
+ 
+let n = 14;
+  document.write(chuSoCuoiCungKhac0(n));
+// Kiểm tra xem chữ số hàng chục (hoặc thứ hai 
+// cuối) là lẻ hay chẵn 
+// Nếu n = 375, Vậy n / 10 = 37 và 
+// (n / 10)% 10 = 7 Áp dụng công thức 
+// cho chẵn và lẻ các trường hợp.
