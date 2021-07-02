@@ -1,18 +1,21 @@
-function chuoi(c2, c1) {
-	var count = 0;
-	for (var i = 0; c1.length; i++) {
-		if (count == c2.length) {
-			break;
-		} if (c2[count] == c1[i]) {
-			count++;
-		} else {
-			if (count > 0) {
-				i -= count;
-			} count = 0;
-		}
-	}
-	return count < c2.length ? -1 : i - count;
-}
-var c1 = "phanvanduongph18124";
 
-document.write("vị trí thứ"+chuoi("duong", c1));
+function chuoi(chuoicantim,chuoinguon){
+	var a = chuoicantim.length;
+	var b = chuoinguon.length;
+	for (var i = 0 ; i <= b-a; i++){
+		var j ;
+		for ( j = 0; j < a; j++)
+			if(chuoinguon[i + j] != chuoicantim[j])
+				break;
+			if(j == a)
+				return i;
+		}
+	return -1;
+}
+var chuoicantim = "abc";
+var chuoinguon = "phanvanduong";
+var dem = chuoi(chuoicantim, chuoinguon);
+if (dem == -1 )
+	document.write("khong co gia tri trong chuoi can tim");
+else 
+	 document.write("chuoi can tim o vi tri thu : " + dem);
